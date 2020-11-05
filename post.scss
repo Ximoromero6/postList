@@ -1,0 +1,152 @@
+@import "../assets/css/mixins";
+@import "../assets/css/variables";
+* {
+    @include reset;
+}
+
+body {
+    min-height: 100vh;
+    margin: auto;
+    @include flex;
+}
+
+section.publicaciones {
+    margin: 50px 48px;
+    @media (max-width: 768px) {
+        margin: 50px 28px;
+    }
+    @media (max-width: 576px) {
+        margin: 30px 18px;
+    }
+}
+
+article.post {
+    /*   background: red; */
+    @include flex;
+    max-width: 700px;
+    width: 100%;
+    font-family: $bodyFamily;
+    margin-bottom: 48px;
+    border-radius: 3px;
+    .left_container {
+        flex: 3;
+        padding-right: 10px;
+        .autor_data {
+            @include startFlex;
+            margin-bottom: 10px;
+            a.autor_link {
+                /* Hay que cambiar y poner dos links uno foto y otro texto */
+                @include flex;
+                font-size: 13px;
+                img.autor_image {
+                    @include icon(20px, 20px);
+                    border-radius: 50%;
+                }
+                p.autor_name {
+                    font-weight: 500;
+                }
+                @include link;
+                &:nth-child(2) {
+                    margin-left: 10px;
+                }
+            }
+        }
+        .post_data {
+            @include link;
+            h3.post_title {
+                font-weight: 900;
+                font-size: 24px;
+                margin-bottom: 10px;
+                @media (max-width: 768px) {
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+                @media (max-width: 576px) {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            h4.description {
+                margin: 10px 10px 10px 0;
+                font-weight: 400;
+                color: #757575;
+                font-size: 16px;
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+        .bottom_information {
+            @include betweenFlex;
+            .left_column {
+                @include betweenFlex;
+                font-size: 13px;
+                .date_post,
+                .readTime_post {
+                    color: #444444;
+                    padding: 6px 0;
+                }
+                .separator {
+                    margin: 0 5px;
+                    height: 100%;
+                    @include flex;
+                }
+                .categorias_post {
+                    @include flex;
+                    margin-left: 10px;
+                    .html,
+                    .css {
+                        padding: 2px 6px;
+                        font-weight: 600;
+                        border-radius: 3px;
+                        background: #6B5B95;
+                        @include flex;
+                        margin: 0 5px;
+                        text-transform: uppercase;
+                        @include link;
+                        color: #ffffff;
+                    }
+                    .css {
+                        background: #FF6F61;
+                    }
+                    @media(max-width: 576px) {
+                        display: none;
+                    }
+                }
+            }
+            .right_column {
+                a.save_link {
+                    @include iconRight(20px, 20px, 10px);
+                    display: block;
+                    @include link;
+                    img.save_post {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+    .right_container {
+        flex: 1;
+        @include flex;
+        @include link;
+        height: 140px;
+        img.post_image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media(max-width: 768px) {
+            height: 120px;
+        }
+        @media(max-width: 576px) {
+            flex: 1.5;
+            height: 100;
+        }
+    }
+    @media (max-width: 768px) {
+        max-width: none;
+    }
+}
