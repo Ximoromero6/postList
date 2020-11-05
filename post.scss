@@ -21,7 +21,6 @@ section.publicaciones {
 }
 
 article.post {
-    /*   background: red; */
     @include flex;
     max-width: 700px;
     width: 100%;
